@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.15.15"></a>
+## [2.15.15](https://github.com/ng-select/ng-select/compare/v2.15.14...v2.15.15) (2019-01-15)
+
+
+
 <a name="2.15.14"></a>
 ## [2.15.14](https://github.com/ng-select/ng-select/compare/v2.15.13...v2.15.14) (2019-01-15)
 
