@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.15.0"></a>
+# [2.15.0](https://github.com/ng-select/ng-select/compare/v2.14.0...v2.15.0) (2019-01-15)
+
+
+### Features
+
+* added autocorrect and autocapitalize inputs ([#1017](https://github.com/ng-select/ng-select/issues/1017)) ([c7dd2ac](https://github.com/ng-select/ng-select/commit/c7dd2ac)), closes [#994](https://github.com/ng-select/ng-select/issues/994)
+
+
+
 <a name="2.14.0"></a>
 # [2.14.0](https://github.com/ng-select/ng-select/compare/v2.13.3...v2.14.0) (2019-01-09)
 
