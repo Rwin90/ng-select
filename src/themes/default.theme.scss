@@ -236,6 +236,13 @@ $color-selected: #f5faff;
             }
         }
     }
+    .ng-blocker {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
     .ng-dropdown-header {
         border-bottom: 1px solid #ccc;
         padding: 5px 7px;

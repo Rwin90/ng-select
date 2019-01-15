@@ -36,18 +36,21 @@ const BOTTOM_CSS_CLASS = 'ng-select-bottom';
     encapsulation: ViewEncapsulation.None,
     selector: 'ng-dropdown-panel',
     template: `
-        <div *ngIf="headerTemplate" class="ng-dropdown-header">
-            <ng-container [ngTemplateOutlet]="headerTemplate" [ngTemplateOutletContext]="{ searchTerm: filterValue }"></ng-container>
-        </div>
-        <div #scroll class="ng-dropdown-panel-items scroll-host">
-            <div #padding [class.total-padding]="virtualScroll"></div>
-            <div #content [class.scrollable-content]="virtualScroll && items.length > 0">
-                <ng-content></ng-content>
-            </div>
-        </div>
-        <div *ngIf="footerTemplate" class="ng-dropdown-footer">
-            <ng-container [ngTemplateOutlet]="footerTemplate" [ngTemplateOutletContext]="{ searchTerm: filterValue }"></ng-container>
-        </div>
+      <div class="ng-blocker" (click)="outsideClick.emit()" (mousewheel)="onScroll($event)" >
+      </div>
+      <div *ngIf="headerTemplate" class="ng-dropdown-header">
+          <ng-container [ngTemplateOutlet]="headerTemplate" [ngTemplateOutletContext]="{ searchTerm: filterValue }"></ng-container>
+      </div>
+      <div #scroll class="ng-dropdown-panel-items scroll-host test">
+          <div #padding [class.total-padding]="virtualScroll"></div>
+          <div #content [class.scrollable-content]="virtualScroll && items.length > 0">
+              <ng-content></ng-content>
+          </div>
+      </div>
+      <div *ngIf="footerTemplate" class="ng-dropdown-footer">
+          <ng-container [ngTemplateOutlet]="footerTemplate" [ngTemplateOutletContext]="{ searchTerm: filterValue }"></ng-container>
+      </div>
+
     `
 })
 export class NgDropdownPanelComponent implements OnInit, OnChanges, OnDestroy, AfterContentInit {
@@ -154,6 +157,9 @@ export class NgDropdownPanelComponent implements OnInit, OnChanges, OnDestroy, A
         })
     }
 
+    onScroll(e) {
+      e.preventDefault();
+    }
     scrollInto(item: NgOption) {
         if (!item) {
             return;

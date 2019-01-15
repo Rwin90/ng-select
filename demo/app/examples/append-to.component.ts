@@ -4,35 +4,41 @@ import { DataService } from '../shared/data.service';
 @Component({
     selector: 'append-to',
     template: `
-       <p>By default ng-select appends dropdown to it's child, but you can append dropdown to any element using <b>appendTo</b> input.</p>
+            <div class="container-scroll" >
+            <p>By default ng-select appends dropdown to it's child, but you can append dropdown to any element using <b>appendTo</b> input.</p>
+            <p>If you place ng-select to container with fixed height and hidden overflow then dropdown will not be fully visible.</p>
+             ---html,true
+             <div class="overflow-box">
+                 <ng-select [items]="people | async"
+                     bindLabel="company"
+                     placeholder="Select item"
+                     [(ngModel)]="selected">
+                 </ng-select>
+             </div>
+             ---
 
-       <p>If you place ng-select to container with fixed height and hidden overflow then dropdown will not be fully visible.</p>
-        ---html,true
-        <div class="overflow-box">
-            <ng-select [items]="people | async"
-                bindLabel="company"
-                placeholder="Select item"
-                [(ngModel)]="selected">
-            </ng-select>
-        </div>
-        ---
+             <p>It can be fixed by appending dropdown to body or other parent element.</p>
+             ---html,true
+             <div class="overflow-box">
+                 <ng-select [items]="people | async"
+                     bindLabel="company"
+                     placeholder="Select item"
+                     appendTo="body"
+                     multiple="true"
+                     [closeOnSelect]="false"
+                     [(ngModel)]="selected2">
+                 </ng-select>
+             </div>
+             ---
 
-        <p>It can be fixed by appending dropdown to body or other parent element.</p>
-        ---html,true
-        <div class="overflow-box">
-            <ng-select [items]="people | async"
-                bindLabel="company"
-                placeholder="Select item"
-                appendTo="body"
-                multiple="true"
-                [closeOnSelect]="false"
-                [(ngModel)]="selected2">
-            </ng-select>
-        </div>
-        ---
+            </div>
     `,
     styles: [
-        `
+        `   .container-scroll {
+          width: 100%;
+          height: 400px;
+          overflow-y: auto;
+        }
            .overflow-box {
                widht: 300px;
                padding: 5px;
@@ -51,7 +57,7 @@ export class AppendToComponent implements OnInit {
     selected2: any;
     constructor(private dataService: DataService) { }
 
-    ngOnInit() { 
+    ngOnInit() {
         this.people = this.dataService.getPeople();
     }
 }

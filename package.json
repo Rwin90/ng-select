@@ -83,5 +83,8 @@
     "webpack-cli": "^3.1.0",
     "webpack-dev-server": "3.1.5",
     "zone.js": "^0.8.26"
+  },
+  "dependencies": {
+    "yarn": "^1.13.0"
   }
 }
