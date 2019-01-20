@@ -14,4 +14,4 @@ git push --follow-tags origin master
 # push to npm
 cp README.md ./dist
 cd ./dist
-yarn publish --access=public
+yarn publish ./dist --access=public
